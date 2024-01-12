@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .lightbulb{
+        width: 150px;
+        height: 300px;
+        border: 2px solid;
+        border-radius: 100px;
+        position: relative;
+        left: 600px;
+        background-color: gray;
+    }
+    .buttonbox{
+        width: 150px;
+        height: 100px;
+        border: 2px solid;
+        position: relative;
+        left: 600px;
+        background-color: #C4A484;
+    }
+    .button{
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        position: relative;
+        left: 55px;
+        top: 30px;
+        background-color: red;
+        font-size: 10px;
+    }
+    .lightbulbText{
+        border: 2px solid;
+        position: relative;
+        top: 50px;
+        left: 200px;
+    }
+</style>
+<body>
+    <div id="app" class="lightbulb"></div>
+    <div id="button" class="buttonbox"></div>
+    <script>
+        //Modell
+        let on = true
+        //View
+        updateView();
+        function updateView(){
+           let fik = document.getElementById('app');
+           fik.innerHTML = /*HTML*/`
+
+           `;
+        }
+        lightbulbBox();
+        function lightbulbBox(){
+            let fik = document.getElementById('button');
+            fik.innerHTML = /*HTML*/`
+            <button class="button" onclick="changeTrueOrFalse()">Av/På</button>
+           `;
+        }
+        //Controller
+        function changeTrueOrFalse(){
+            buttonOffAndOn();
+            on = !on
+        }
+        function buttonOffAndOn(){
+            if(on == true){
+                turnLightOn();
+                document.getElementById('app').innerHTML = `
+                <div class="lightbulbText">The light bulb is on!!</div>
+                `;
+            }
+            else{
+                turnLightOff();
+            }
+        }
+        function turnLightOn(){
+            document.getElementById('app').style.backgroundColor = 'yellow';
+        }
+        function turnLightOff(){
+            document.getElementById('app').style.backgroundColor = 'gray';
+        }
+
+        
+    </script>
+</body>
+</html>
